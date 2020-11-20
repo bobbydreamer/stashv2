@@ -1,0 +1,72 @@
+doctype html
+include ./partials/head.pug
+
+// Custom styles for this template
+link(href='/bs-page-css/blog.css' rel='stylesheet')
+link(href='dark-mode/hankchizljaw-dm.css' rel='stylesheet')
+link(href='/editormd/css/editormd.css' rel='stylesheet')
+
+
+.container
+  include ./partials/header.pug
+      
+main.container
+  .row
+    .col-md-12
+      h3.pb-2.mb-4.font-italic.border-bottom.pt-3
+        | Write notes
+    .col-md-8
+      form
+        .form-group.row
+          .col-sm-10.offset-md-1
+            input.form-control(type='text' placeholder='Article title')
+        .form-group.row.mt-3.mb-3
+          .col-sm-8.offset-md-1
+            input.form-control(type='text' placeholder='Category')
+
+
+    .col-md-12
+      #test-editor
+        textarea(style='display:none;')
+          | ### Editor.md
+          | **Editor.md**: The open source embeddable online markdown editor, based on CodeMirror &amp; jQuery &amp; Marked.
+          | 
+          | [TOC]
+          | 
+          | # Heading 1
+          | This is the first paragraph
+          | ## Heading 2
+          | This is the second heading
+          | ### Heading 3
+          | This is the third heading
+          | ### Flowchart
+          | &grave;&grave;&grave;flow
+          | st=&gt;start: Start
+          | op=&gt;operation: Operate
+          | cond=&gt;condition: Diamond Yes or No?
+          | e=&gt;end: Quit
+          | st-&gt;op-&gt;cond
+          | cond(yes)-&gt;e
+          | cond(no)-&gt;op
+          | &grave;&grave;&grave;
+          | ### Sequence Diagram
+          | &grave;&grave;&grave;seq
+          | Andrew-&gt;China: Says Hello
+          | Note right of China: China thinks\nabout it
+          | China--&gt;Andrew: How are you?
+          | Andrew-&gt;&gt;China: I am good thanks!
+          | &grave;&grave;&grave;
+        
+    .row
+      .col.text-center.m-3
+        button#get-md-btn Get Markdown
+        button#get-html-btn.ml-3 Get HTML
+
+
+include ./partials/footer.pug
+
+script(src='dark-mode/hankchizljaw-dm.js')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+script(src='/editormd/editormd.min.js')
+script(src='/editormd/languages/en.js')
+script(src='/js/write-md.js')

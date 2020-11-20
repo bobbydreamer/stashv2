@@ -1,0 +1,34 @@
+header.blog-header.py-3
+  .row.flex-nowrap.align-items-center
+    .col-4.pt-1
+      .row 
+        .col-md-2.mt-3
+          a.link-secondary(href='/category-latest') Read
+        .col-md-2.mt-3
+          a.link-secondary(href='/write') Write
+        .col-md-2.mt-3
+          a.link-secondary(href='/trash') Trash
+    .col-4.text-center
+      a.blog-header-logo.web-title(href='/') Stash
+    .col-4.pt-1
+      .row
+        .col-md-3.mt-2.ml-auto
+          a.btn.btn-md.btn-outline-secondary(href='#' style='float: right;') Sign out
+        .col-md-2.mt-1
+          .user-toggle
+            .visually-hidden.js-mode-status(role='status' class='[ ][ ]')
+            button#lightdarkmode.toggle-button.js-mode-toggle(class='[ ] [ ]')
+              span.toggle-button__icon(aria-hidden='true')
+
+
+      //- .row.ml-2
+        .col-md-1
+          label.switch
+            input#darkSwitch(type='checkbox')
+            span.slider.round
+        .col-md-1
+          span.ml-1 Go Dark
+
+.nav-scroller.py-1.mb-2
+  nav.nav.d-flex.justify-content-between
+    include category-list-nav.pug

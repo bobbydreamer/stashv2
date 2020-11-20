@@ -1,0 +1,37 @@
+doctype html
+include ./partials/head.pug
+
+// Custom styles for this template
+link(href='/bs-page-css/blog.css' rel='stylesheet')
+
+link(href='/dark-mode/hankchizljaw-dm.css' rel='stylesheet')
+
+.container
+  include ./partials/header.pug
+      
+main.container
+  .row
+    .col-md-8
+      h3.pb-2.mb-4.font-italic.border-bottom.pt-3
+        | #{title}
+      article.blog-post
+        include ./partials/note-plain.pug
+
+        include ./partials/note-plain.pug
+
+
+    // Article titles
+    .col-md-4
+      .p-4.bg-card.rounded.shadow
+        h4.font-italic List
+        p.mb-0
+          ol.list-unstyled.mb-0
+            li
+              a(href='#') Article 1
+            li
+              a(href='#') Article 2
+
+
+include ./partials/footer.pug
+
+script(src='/dark-mode/hankchizljaw-dm.js')

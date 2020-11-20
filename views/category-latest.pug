@@ -1,0 +1,39 @@
+doctype html
+include ./partials/head.pug
+
+// Custom styles for this template
+link(href='bs-page-css/blog.css' rel='stylesheet')
+link(href='dark-mode/hankchizljaw-dm.css' rel='stylesheet')
+
+.container
+  include ./partials/header.pug
+
+link(href='bs-page-css/offcanvas.css' rel='stylesheet')
+
+main.container
+  .row
+    .col-md-8
+      h3.pb-2.mb-4.font-italic.border-bottom.pt-3
+        | Read latest notes in each category
+      article
+        include ./partials/category-latest-top.pug
+
+        include ./partials/category-latest-top.pug
+        
+
+        // Leaving a little space between content and footer
+        .col-md-8.mt-5
+
+
+    // Categories list
+    .col-md-4
+      .p-4.bg-card.rounded
+        h4.font-italic Categories
+        p.mb-0
+          ol.list-unstyled.mb-0
+            include ./partials/category-list.pug
+
+
+include ./partials/footer.pug
+
+script(src='dark-mode/hankchizljaw-dm.js')
