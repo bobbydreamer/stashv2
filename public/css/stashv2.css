@@ -1,0 +1,49 @@
+
+.user-card {
+	background-color: #243665;
+	color: #fff;
+}
+
+.user-card > h4 {
+	color: #fff;
+}
+
+.user-card a {
+	
+color: #8bd8bd;	
+}
+
+.alink1{
+	color: #8bd8bd;
+}
+
+.bg-card {
+	background-color: #001730;
+	color: #fff;
+}
+
+.bg-card > h4 {
+	color: #fff;
+}
+
+.bg-card a {
+	
+color: #8bd8bd;	
+}
+
+/**** Header icons size : header.pug ***/
+.readme-size{
+	width:30px;
+}
+
+.keyboard-size{
+	width:30px;
+}
+
+.trash-size{
+	width:20px;
+}
+
+.door-size{
+	width:30px;
+}

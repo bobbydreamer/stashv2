@@ -1,0 +1,33 @@
+
+/**** Login *************************************************************************/
+.box{
+    position: relative;
+    padding: 15px;
+    overflow: hidden;
+	border: solid 1px #000;
+}
+
+.title-1{
+    font-size: 120px;
+    margin-bottom: 0;
+    position: relative;
+    line-height: 150px;
+    padding: 5px;
+    width: 100%;
+    text-align: left;
+    letter-spacing: 2px;
+    font-weight: 400;
+}
+
+body{
+	background-color: #e8eae3;
+}
+
+.outer {
+    margin-top: 8rem;
+}
+
+.form-control{
+	background-color: #343a40;	
+	color: #fff;
+}

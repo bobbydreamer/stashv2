@@ -4,6 +4,7 @@ include ./partials/head.pug
 // Custom styles for this template
 link(href='bs-page-css/blog.css' rel='stylesheet')
 //- link(href='https://coliff.github.io/dark-mode-switch/dark-mode.css' rel='stylesheet')
+link(href='css/stashv2.css' rel='stylesheet')
 link(href='dark-mode/hankchizljaw-dm.css' rel='stylesheet')
 
 .container
@@ -12,9 +13,11 @@ link(href='dark-mode/hankchizljaw-dm.css' rel='stylesheet')
 main.container
   .row
     .col-md-8
-      h3.pb-2.mb-4.font-italic.border-bottom.pt-3
+      h3.pb-2.mb-4.font-italic.bb.pt-3
         | Latest notes
-      article.blog-post
+      article#all_articles.blog-post
+        include ./partials/note-plain.pug
+
         include ./partials/note-plain.pug
 
 
@@ -26,6 +29,16 @@ main.container
 
     // Starrted items
     .col-md-4
+      .p-4.user-card.rounded.shadow.mt-3.mb-3
+        h4.font-italic Hello Username
+        p.mb-0
+          ol.list-unstyled.mb-0
+            li
+              | Last logged in time : 2020-11-21 19:53 PM
+            li.mt-1
+              a(href='/profile-feedback' class="alink1") Profile Settings
+
+
       .p-4.bg-card.rounded.shadow
         h4.font-italic Starred
         p.mb-0
@@ -40,7 +53,11 @@ main.container
         ol.list-unstyled.mb-0
           include ./partials/category-list.pug
 
+  div.mb-5
+
 include ./partials/footer.pug
 
 //- script(src='https://coliff.github.io/dark-mode-switch/dark-mode-switch.min.js')
+script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
 script(src='dark-mode/hankchizljaw-dm.js')
+script(src='js/stashv2.js')

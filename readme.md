@@ -1,28 +1,31 @@
-# Stash - version 2
+# Stash - version 2 ( in-progress )
 
 ### Whats new
 New design will be minimalistic and shows top 100 notes on the home page by default, earlier version displayed all the notes. 
 
 ##### Features
-* Notes
-* Expense Tracker
-* Notes in plain text, snippet and markdown
-* Todos
 
-### Commands for development use 
+###### Stage 1
+* Notes entered via EditorMD
+* Dark mode 
+
+###### Stage 2
+* Expense Tracker
+* Todos like kanban board
+
+### Commands/Tools used during development
 
 * Convert HTML tags to pug : [html-to-pug](https://html-to-pug.com/)
 
-node
+NPM Packags used
 ```
 npm init
 npm install express --save
 npm install pug --save
 npm install body-parser --save
-
 ```
 
-git
+git commands
 ```
 # Initial
 git init
@@ -57,6 +60,13 @@ git checkout -- fileA.txt
 # Replacing file in WD with file in HEAD ( HEAD -> Staging -> WD )
 git checkout HEAD -- fileA.txt
 ```
+
+### Development points 
+* [Very useful read](https://marcandrew.me/ui-ux-tips-collection-vol-one/). Points taken are 
+  * **Try to create generous Tappable areas on Mobile** : Changed header link to icons
+  * **Using just one typeface in your design is all good. Ignore the haters** :     
+* [SVG Header image](https://www.smashingmagazine.com/2014/11/styling-and-animating-svgs-with-css/)
+  * Initially tried with `<img>` and tried to change color with `fill` it did not work and after reading above article got to know i) with `img` `CSS background image` you cannot do any CSS interactions which includes changing fill. So had to use `svg` in the pug itself and now everything works. My initial intention was to keep the SVG separate not put it in pug but due to limitations had no choice. 
 
 ### Deployments 
 

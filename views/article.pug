@@ -4,6 +4,7 @@ include ./partials/head.pug
 // Custom styles for this template
 link(href='/bs-page-css/blog.css' rel='stylesheet')
 link(href='/dark-mode/hankchizljaw-dm.css' rel='stylesheet')
+link(href='/css/stashv2.css' rel='stylesheet')
 
 .container
   include ./partials/header.pug
@@ -11,10 +12,39 @@ link(href='/dark-mode/hankchizljaw-dm.css' rel='stylesheet')
 main.container
   .row
     .col-md-8
-      h3.pb-2.mb-4.font-italic.border-bottom.pt-3
+      .blog-post-meta.mt-3.mb-3
+        a(href='#') Design
+      h3.mb-1.font-italic
         | #{title}
-      article.blog-post
-        include ./partials/note-plain.pug
+      article#all_articles.blog-post
+        .row.blog-post-meta.bb
+            .col-6
+              span.star.white-star    
+              |January 1, 2014
+            .col-6.text-right
+              a(href='#') Trash
+              |  . 
+              a(href='#') Update
+        .col
+          p
+            | <h1> Test </h1> This blog post shows a few different types of content that&rsquo;s supported and styled with Bootstrap. Basic typography, images, and code are all supported.
+          p
+            | Cum sociis natoque penatibus et magnis 
+            a(href='#') dis parturient montes
+            | , nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.
+          blockquote
+            p
+              | Curabitur blandit tempus porttitor. 
+              strong Nullam quis risus eget urna mollis
+              |  ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.
+          p
+            | Etiam porta 
+            em sem malesuada magna
+            |  mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.
+        
+        hr
+
+        
 
       // /.blog-post
       nav.blog-pagination(aria-label='Pagination')
@@ -23,7 +53,7 @@ main.container
 
     // Starred items
     .col-md-4
-      .p-4.bg-card.rounded.shadow
+      .p-4.bg-card.rounded.shadow.mt-3
         h4.font-italic Nexts
         p.mb-0
           ol.list-unstyled.mb-0
@@ -35,4 +65,6 @@ main.container
 
 include ./partials/footer.pug
 
+script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js')
 script(src='/dark-mode/hankchizljaw-dm.js')
+script(src='/js/stashv2.js')

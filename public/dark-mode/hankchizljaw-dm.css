@@ -1,18 +1,21 @@
 :root {
   --color-mode: 'light';
-  --color-dark: #141414;
-  --color-dark-alpha: rgba(0, 0, 0, 0.1);
-  --color-light: #fff;
+  --bg-light: #e6e5df;
+  --bg-dark: #141414; 
+  --color-dark-alpha: #000;
   --color-light-alpha: rgba(255, 255, 255, 0.9);
   
-  --card-bg-light: #f8f9fa;
-  --card-bg-dark: #101d29;
+  /* */
+  --text-light:#8ba3b2;
+  --text-dark: var(--bg-dark);
+  --header-light : #4d96d3;
+  
   --link-secondary-light: #789dbd;
   --link-secondary-dark: #6c757d;
   --date-color-light: #dcdada;  
   --date-color-dark: #727272;
   --category-light-title-bg: #052cd4;
-  --category-light-body-bg: #fffcc9;  
+  --category-light-body-bg: #fff;  
   --category-dark-title-bg: #1d1e22;
   --category-dark-body-bg: #14181d;  
   
@@ -32,18 +35,19 @@
   </svg>');
   --icon-moon-filter: invert(0.75);
   
-  --background: #fff;
-  --text-color: #141414;
+  --background: var(--bg-light);
+  --web-title: var(--text-dark);
+  --header-text: var(--text-dark);
+  --text-color: var(--text-dark);
   --button-icon: var(--icon-moon);
   --button-icon-filter: var(--icon-moon-filter);
-  --button-background: var(--color-dark);
-  --button-color: var(--color-light);
-  --border-color: var(--color-dark-alpha);
-  --card-color: var(--card-bg-light);
+  --button-background: var(--bg-dark);
+  --button-color: var(--bg-light);
+  --border-color: var(--color-dark-alpha); 
   --link-secondary: var(--link-secondary-dark);
   --date-color: var(--date-color-light);
   --category-title-bg: var(--category-light-title-bg);
-  --category-body-bg: var(--category-light-body-bg);
+  --category-body-bg: var(--background);
 }
 
 body {
@@ -65,14 +69,15 @@ body {
   }
   
   :root:not([data-user-color-scheme]) {
-    --background: var(--color-dark);
-    --text-color: var(--color-light);
+    --background: var(--bg-dark);
+	--web-title: var(--bg-light);
+	--header-text: var(--header-light);
+    --text-color: var(--text-light);
     --button-icon: var(--icon-sun);
     --button-icon-filter: var(--icon-sun-filter);
-    --button-background: var(--color-light);
-    --button-color: var(--color-dark);
+    --button-background: var(--bg-light);
+    --button-color: var(--bg-dark);
     --border-color: var(--color-light-alpha);
-	--card-color: var(--card-bg-dark);	
     --link-secondary: var(--link-secondary-light);
 	--date-color: var(--date-color-dark);	
     --category-title-bg: var(--category-dark-title-bg);
@@ -81,14 +86,15 @@ body {
 }
 
 [data-user-color-scheme="dark"] {
-  --background: var(--color-dark);
-  --text-color: var(--color-light);
+  --background: var(--bg-dark);
+  --web-title: var(--bg-light);
+  --header-text: var(--header-light);
+  --text-color: var(--text-light);
   --button-icon: var(--icon-sun);
   --button-icon-filter: var(--icon-sun-filter);
   --button-background: var(--color-light-alpha);
-  --button-color: var(--color-dark);
+  --button-color: var(--bg-dark);
   --border-color: var(--color-light-alpha);
-  --card-color: var(--card-bg-dark);	  
   --link-secondary: var(--link-secondary-light);
   --date-color: var(--date-color-dark);	  
   --category-title-bg: var(--category-dark-title-bg);
@@ -161,19 +167,9 @@ body {
   position: absolute;
 }
 
-
-/* Presentational demo styles */
-
+/**** Presentational styles *************************************************************************/
 button#lightdarkmode {
 background-color : var(--button-color); 
-}
-
-.web-title{
-	color: var(--text-color);
-}
-
-[data-user-color-scheme="dark"] .bg-card {
-	background-color: var(--card-color);
 }
 
 [data-user-color-scheme="dark"] .link-secondary {
@@ -192,6 +188,50 @@ background-color : var(--button-color);
 	background-color: var(--category-body-bg);
 }
 
-.form-control{
+[data-user-color-scheme="dark"] .form-control{
 	background-color: var(--category-body-bg);	
+	color : var(--text-color);
 }
+
+.bb {
+	border-bottom: 1px solid var(--text-color);
+}
+
+[data-user-color-scheme="dark"] h1, h2, h3, h4, h5, h6 {
+    color: var(--header-text);
+}
+
+.web-title{
+	color: var(--web-title);
+}
+
+svg{
+	color: var(--web-title);
+}
+
+
+/**** Star *************************************************************************/
+.white-star::before {
+  content: "☆";
+  color: var(--category-dark-body-bg);
+  font-size: 30px;  
+}
+
+.black-star::before {
+  content: "★";
+  color: var(--category-dark-body-bg);
+  font-size: 30px;  
+}
+
+[data-user-color-scheme="dark"] .white-star::before {
+  content: "☆";
+  color: var(----category-light-body-bg);
+  font-size: 30px;  
+}
+
+[data-user-color-scheme="dark"] .black-star::before {
+  content: "★";
+  color: var(----category-light-body-bg);
+  font-size: 30px;  
+}
+

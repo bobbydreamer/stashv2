@@ -36,6 +36,10 @@ app.use(bodyParser.json()); // Added during testing /runquery as body object was
 // ** Middleware **
 // ***************************************
 app.use(express.static('./public'));
+// app.use(express.static(path.join(__dirname, '/public')));
+// app.use('/public', express.static(__dirname + '/public'));
+
+
 
 // ***************************************
 // ** Routes **
@@ -57,12 +61,14 @@ app.get('/write', function(req, res){
 // ***************************************
 // ** Category **
 // ***************************************
+
 //------------------------------------------------------ /category-latest
-app.get('/category-latest', function(req, res){
+//-- Remove as getting top-5 could be complex or 
+app.get('/category-all', function(req, res){
   var test_val = req.app.get('test_val');
   test_val = 1;
   req.app.set('test_val', test_val);
-  res.render('category-latest',{title: "Latest category"});
+  res.render('category-all',{title: "All Titles"});
 });
 
 //------------------------------------------------------ /category/:categoryName
@@ -80,7 +86,7 @@ app.get('/category/:categoryName/:articleId', function(req, res){
   let categoryName = req.params.categoryName;
   let articleId = req.params.articleId;
   console.log(categoryName, articleId);  
-  res.render('article',{title: "Article Title"});
+  res.render('article',{title: "Article Title", categoryName});
 });
 
 //------------------------------------------------------ /category/:categoryName/:articleId
@@ -90,6 +96,16 @@ app.get('/all/:articleId', function(req, res){
   console.log(articleId);  
   res.render('article',{title: "Article Title"});
 });
+
+//------------------------------------------------------ /profile-feedback
+app.get('/profile-feedback', function(req, res){
+  var test_val = req.app.get('test_val');
+  test_val = 1;
+  req.app.set('test_val', test_val);
+  res.render('profile_feedback',{title: "Profile/Feedback"});
+});
+
+
 
 app.get('/jsonr', async function(req, res){
 
@@ -145,12 +161,43 @@ const write_json = async (data, path) =>{
 
 //------------------------------------------------------ /trash
 app.get('/trash', function(req, res){
+  /*
   console.log(req.params);
   let articleId = req.params.articleId;
   console.log(articleId);  
+  */
   res.render('trash',{title: "Trash"});
 });
 
+//------------------------------------------------------ /404
+app.get('/404', function(req, res, next){
+  // trigger a 404 since no other middleware
+  // will match /404 after this one, and we're not
+  // responding here
+  next();
+});
+
+app.use(function(req, res, next){
+  res.status(404);
+  // console.log('Hello');
+  // console.log(req.url);
+  // console.log(process.cwd());
+  // const publicPath = path.join(__dirname, './public');
+  // console.log(publicPath)
+
+
+  res.format({
+    html: function () {
+      res.render('404', { url: req.url })
+    },
+    json: function () {
+      res.json({ error: 'Not found' })
+    },
+    default: function () {
+      res.type('txt').send('Not found')
+    }
+  })
+});
 
 // ***************************************
 // ** Start server **

@@ -1,21 +1,22 @@
 doctype html
-include ./partials/head.pug
+head
+  // Bootstrap core CSS
+  link(href='https://getbootstrap.com/docs/4.5/dist/css/bootstrap.min.css' rel='stylesheet')
+  link(href='css/login.css' rel='stylesheet')
 
-// Custom styles for this template
-link(href='bs-page-css/signin.css' rel='stylesheet')
-
-main.form-signin.text-center
-  form
-    img.mb-4(src='assets/brand/bootstrap-logo.svg' alt='' width='72' height='57')
-    h1.h3.mb-3.fw-normal Please sign in
-    label.visually-hidden(for='inputEmail') Email address
-    input#inputEmail.form-control(type='email' placeholder='Email address' required='' autofocus='')
-    label.visually-hidden(for='inputPassword') Password
-    input#inputPassword.form-control(type='password' placeholder='Password' required='')
-    .checkbox.mb-3
-      label
-        input(type='checkbox' value='remember-me')
-        |  Remember me
-    button.btn.btn-lg.btn-primary.btn-block(type='submit') Sign in
-
-    p.mt-5.mb-3.text-muted &copy; 2017-2020
+.container
+  .outer
+    .row
+      .col-lg-6.bg-dark.text-light.order-first
+        h1.title-1.text-center STASH
+        h3.text-center Simple app to save your notes
+      .col-lg-6.order-last.box
+        form
+          h4 Login
+          .form-group
+            label(for='email') Email
+            input#email.form-control(type='email' name='email' placeholder='Your email' required='')
+            label(for='pw') Password
+            input#pw.form-control(type='password' name='pw' placeholder='password' required='')
+          .text-left
+            button.btn.btn-dark(type='submit') Login

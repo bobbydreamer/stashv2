@@ -1,0 +1,68 @@
+doctype html
+include ./partials/head.pug
+
+// Custom styles for this template
+link(href='/bs-page-css/blog.css' rel='stylesheet')
+link(href='/dark-mode/hankchizljaw-dm.css' rel='stylesheet')
+link(href='/css/stashv2.css' rel='stylesheet')
+
+.container
+  include ./partials/header.pug
+      
+main.container
+  .row
+    .col-md-8
+      h3.mt-4.pb-3.font-italic.bb
+        | Update profile / Provide feedback
+
+      ul#pills-tab.nav.nav-pills.mb-3(role='tablist')
+        li.nav-item(role='presentation')
+          a#pills-profile-tab.active.nav-link(data-toggle='pill' href='#pills-profile' role='tab' aria-controls='pills-profile' aria-selected='false') Profile
+        li.nav-item(role='presentation')
+          a#pills-feedback-tab.nav-link(data-toggle='pill' href='#pills-feedback' role='tab' aria-controls='pills-feedback' aria-selected='false') Feedback
+      #pills-tabContent.tab-content
+        #pills-profile.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='pills-profile-tab') 
+
+          form
+            .input-group.mb-3
+              .input-group-prepend
+                span#basic-addon1.input-group-text @
+              input.form-control(type='text' placeholder='Username' aria-label='Username' aria-describedby='basic-addon1' required)
+  
+            .form-group.mb-3
+              input.form-control(type='email' placeholder='E-Mail' aria-label='email' aria-describedby='basic-addon2' required)
+              small#basic-addon2.form-text.text-muted I&apos;ll never share your email with anyone else.
+  
+            .input-group.mb-3
+              button.btn.btn-primary(type='submit') Update
+
+        #pills-feedback.tab-pane.fade(role='tabpanel' aria-labelledby='pills-feedback-tab')
+
+          form
+            .input-group.mb-3
+              .input-group-prepend
+                span#basic-addon1.input-group-text @
+              input.form-control(type='text' placeholder='Username' aria-label='Username' aria-describedby='basic-addon1' required)
+  
+            .form-group.mb-3
+              input.form-control(type='email' placeholder='E-Mail' aria-label='email' aria-describedby='basic-addon2' required)
+              small#basic-addon2.form-text.text-muted I&apos;ll never share your email with anyone else.
+  
+            .form-group.mb-3
+              textarea#taFeedback.form-control(placeholder='Let me know your thoughts' rows='5' required)
+  
+            .input-group.mb-3
+              button.btn.btn-primary(type='submit') Send feedback
+  
+  
+        div.mb-5
+
+
+
+
+include ./partials/footer.pug
+
+script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+script(src='/assets/dist/js/bootstrap.bundle.min.js')
+script(src='/dark-mode/hankchizljaw-dm.js')
+script(src='/js/stashv2.js')

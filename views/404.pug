@@ -1,0 +1,53 @@
+doctype html
+head
+  // Bootstrap core CSS
+  link(href='https://getbootstrap.com/docs/4.5/dist/css/bootstrap.min.css' rel='stylesheet')
+//-   link(href='css/login.css' rel='stylesheet')
+
+style.
+  .box{
+  position: relative;
+  padding: 15px;
+  overflow: hidden;
+  border: solid 1px #000;
+  }
+  .title-1{
+  font-size: 120px;
+  margin-bottom: 0;
+  position: relative;
+  line-height: 150px;
+  padding: 5px;
+  width: 100%;
+  text-align: left;
+  letter-spacing: 2px;
+  font-weight: 400;
+  }
+  body{
+  background-color: #e8eae3;
+  }
+  .outer {
+  margin-top: 8rem;
+  }
+  .form-control{
+  background-color: #343a40;
+  color: #fff;
+  }
+
+
+.container
+  .outer
+    .row
+      .col-lg-6.bg-dark.text-light.order-first
+        h1.title-1.text-center 404
+        h3.text-center Only way to know whether you are 
+        h3.text-center here on purpose or accident.
+      .col-lg-6.order-last.box
+        form
+          h4 Login
+          .form-group
+            label(for='email') User
+            input#email.form-control(type='text' name='user' value=url required='')
+            label(for='pw') Password
+            input#pw.form-control(type='password' name='pw' placeholder='password' required='')
+          .text-left
+            button.btn.btn-dark(type='submit') Login
